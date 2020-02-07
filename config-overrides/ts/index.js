@@ -1,4 +1,4 @@
-const {override, addTslintLoader, enableEslintTypescript} = require("customize-cra");
+const {override, enableEslintTypescript} = require("customize-cra");
 
 module.exports = override(
     enableEslintTypescript()
