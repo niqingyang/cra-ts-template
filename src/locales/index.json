@@ -1,0 +1,10 @@
+[
+  {
+    "id": "pages.Demo.MobxCounter.nameTitle",
+    "defaultMessage": "Name: {name}, render times {num} 123"
+  },
+  {
+    "id": "pages.Demo.MobxCounter.title",
+    "defaultMessage": "Clicked: {count} times, render {num} times"
+  }
+]

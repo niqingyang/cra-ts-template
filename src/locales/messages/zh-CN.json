@@ -1,0 +1,11 @@
+{
+  "pages.Demo.MobxCounter.messages.nameTitle": "Name: {name}, render times {num}",
+  "pages.Demo.MobxCounter.messages.title": "Clicked: {count} times, render {num} times",
+  "components.SelectLang.nameTitle": "Name: {name}, render times {num} ",
+  "components.SelectLang.title": "Clicked: {count} times, render {num} times",
+  "components.SelectLang.navBar.lang": "语言",
+  "components.SelectLang.navBarLang": "语言",
+  "menu.account.center": "account center",
+  "menu.account.logout": "logout",
+  "menu.account.settings": "account settings"
+}
