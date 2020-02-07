@@ -16,10 +16,11 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dll": "webpack --config config-overrides/webpack-dll/webpack.dll.config"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +36,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "customize-cra": "^0.9.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "react-app-rewired": "^2.1.5",
+    "webpack-cli": "^3.3.10"
   }
 }
