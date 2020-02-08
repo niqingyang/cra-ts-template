@@ -30,7 +30,7 @@ export default [
         providers: [
             () => import('@/pages/Demo/Test/models/tips'),
         ],
-        component: () => import('@/layouts/BlankLayout'),
+        component: () => import('@/layouts/BasicLayout'),
         routes: [
             {
                 name: 'Counter',

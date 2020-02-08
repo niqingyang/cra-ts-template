@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": "menu.account.center",
+    "defaultMessage": "account center"
+  },
+  {
+    "id": "menu.account.logout",
+    "defaultMessage": "logout"
+  },
+  {
+    "id": "menu.account.settings",
+    "defaultMessage": "account settings"
+  },
+  {
+    "id": "pages.Demo.MobxCounter.messages.nameTitle",
+    "defaultMessage": "Name: {name}, render times {num}"
+  },
+  {
+    "id": "pages.Demo.MobxCounter.messages.title",
+    "defaultMessage": "Clicked: {count} times, render {num} times"
+  }
+]

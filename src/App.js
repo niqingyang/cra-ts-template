@@ -10,6 +10,8 @@ import {providers} from '@/utils';
 import routes from '@/config/default.routes';
 import Locale from '@/models/locale';
 
+import './global.less';
+
 const App = observer((props) => {
 
     const {locale, messages} = Locale.useContainer();

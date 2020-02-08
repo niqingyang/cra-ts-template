@@ -19,7 +19,7 @@ module.exports = override(
     addBabelPlugin([
         'react-intl-extractor',
         {
-            extractedFile: path.resolve(paths.appSrc, 'locales/default.json'),
+            extractedFile: path.resolve(paths.appSrc, 'locales/messages/default.json'),
             langFiles: [
                 {
                     path: path.resolve(paths.appSrc, 'locales/messages/zh-CN.json'),

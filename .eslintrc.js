@@ -17,7 +17,7 @@ module.exports = {
         // Your global variables (setting to false means it's not allowed to be reassigned)
         //
         // myGlobal: false
-        ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
+        REACT_APP_ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
         page: true
     },
     rules: {
