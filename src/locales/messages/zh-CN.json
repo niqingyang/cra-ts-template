@@ -1,8 +1,8 @@
 {
   "pages.Demo.MobxCounter.messages.nameTitle": "Name: {name}, render times {num}",
-  "pages.Demo.MobxCounter.messages.title": "Clicked: {count} times, render {num} times",
+  "pages.Demo.MobxCounter.messages.title": "点击了 {count} 次, 渲染了 {num} 次",
   "components.SelectLang.nameTitle": "Name: {name}, render times {num} ",
-  "components.SelectLang.title": "Clicked: {count} times, render {num} times",
+  "components.SelectLang.title": "点击了 {count} 次, 渲染了 {num} 次",
   "components.SelectLang.navBar.lang": "语言",
   "components.SelectLang.navBarLang": "语言",
   "menu.account.center": "account center",

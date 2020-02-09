@@ -6,7 +6,7 @@ import {Compose} from "provider-compose";
 
 const BlankLayout = ({children}) => (<>{children}</>);
 
-function renderRoutes(routes, defaultLoadingComponent) {
+function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
     return routes ? (routes.map((route, i) => {
 
         if (route.redirect) {
@@ -19,12 +19,29 @@ function renderRoutes(routes, defaultLoadingComponent) {
             );
         }
 
-        route.path = route.path ? route.path : '/';
+        if(!route.path && !route.component){
+            return renderRoutes(route.routes, defaultLoadingComponent, parentRoute);
+        }
+
+        route.path = route.path ? route.path.trimRight('/') : parentRoute.path;
+
+        if(parentRoute && route.path.startsWith(parentRoute.path + '/')){
+            route.path = route.path.substring(parentRoute.path.length + 1);
+        }
+
+        // 记录组件中使用的路径
+        if (!route.componentPath) {
+            route.componentPath = route.path;
+        }
+
+        // 计算绝对路径，用于菜单中使用
+        if (parentRoute && !route.path.startsWith("/")) {
+            route.path = parentRoute.path + '/' + route.path;
+        }
 
         route.loadingComponent = route.loadingComponent ? route.loadingComponent : defaultLoadingComponent;
 
         if (route.component) {
-
             if (!route.componentLoaded) {
                 // 组件必须是个函数
                 invariant(isFunction(route.component), `route ${route.path} component must be a function`);
@@ -33,20 +50,21 @@ function renderRoutes(routes, defaultLoadingComponent) {
                     loader: route.component,
                     loading: route.loadingComponent
                 });
-
-                route.componentLoaded = true;
             }
         } else {
             route.component = BlankLayout;
         }
 
+        // 标记组件已加载过
+        route.componentLoaded = true;
+
         const component = (
             <route.component
                 key={route.key || i}
-                path={route.path}
+                path={route.componentPath}
                 route={route}
             >
-                {renderRoutes(route.routes, defaultLoadingComponent)}
+                {renderRoutes(route.routes, defaultLoadingComponent, route)}
             </route.component>
         );
 

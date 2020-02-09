@@ -18,12 +18,13 @@ import {Icon, Result, Button} from 'antd';
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import {isAntDesignPro, getAuthorityFromRouter} from '@/utils/utils';
-import logo from '@/assets/logo.svg';
 
 import User from '@/models/user';
 import Global from '@/models/global';
 import Setting from '@/models/settings';
 import {RouteType} from '@/config/default.routes';
+
+import logo from '@/assets/logo.svg';
 
 const noMatch = (
     <Result
@@ -140,8 +141,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     const authorized = getAuthorityFromRouter(route.routes, location.pathname || '/') || {
         authority: undefined,
     };
-
-    console.log(authorized)
 
     const {formatMessage} = useIntl();
 

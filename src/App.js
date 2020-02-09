@@ -10,13 +10,11 @@ import {providers} from '@/utils';
 import routes from '@/config/default.routes';
 import Locale from '@/models/locale';
 
-import styles from './App.less';
+import './App.less';
 
 const App = observer((props) => {
 
     const {locale, messages} = Locale.useContainer();
-
-    console.log(styles)
 
     return (
         <IntlProvider locale={locale} messages={messages}>

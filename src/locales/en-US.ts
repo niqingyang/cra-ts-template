@@ -4,7 +4,7 @@ import menu from './en-US/menu';
 import pwa from './en-US/pwa';
 import settingDrawer from './en-US/settingDrawer';
 import settings from './en-US/settings';
-import messages from "./messages/zh-CN.json";
+import messages from "./messages/en-US.json";
 
 export default {
     ...messages,

@@ -10,14 +10,14 @@ export interface RouteType {
     hideInMenu?: boolean,
     // 是否在菜单中隐藏子项，默认 false
     hideChildrenInMenu?: boolean,
-    // 访问路径
+    // 访问路径，
     path: string,
     // 重定向路径
     redirect?: string,
-    // 包含 Provider 的容器
+    // 包含可以到处 default 为 Provider 的容器
     providers?: React.FC | [React.FC],
     // 组件
-    component: React.FC,
+    component: React.FC | React.Component
     // 子路由
     routes?: RouteType[],
     [key: string]: any
@@ -26,7 +26,7 @@ export interface RouteType {
 export default [
     {
         name: 'Demo',
-        path: '/',
+        path: '/demo',
         providers: [
             () => import('@/pages/Demo/Test/models/tips'),
         ],

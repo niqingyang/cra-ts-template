@@ -60,65 +60,6 @@ ol {
 }
 
 /* 
-  Convert to from  src/App.module.less
-*/
-
-html,
-body,
-#antd-pro-app\.module-root {
-  height: 100%;
-}
-
-.antd-pro-app\.module-colorWeak {
-  filter: invert(80%);
-}
-
-.antd-pro-app\.module-ant-layout {
-  min-height: 100vh;
-}
-
-canvas {
-  display: block;
-}
-
-body {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-@media (max-width: @screen-xs) {
-  .antd-pro-app\.module-ant-table {
-    width: 100%;
-    overflow-x: auto;
-
-    &-thead > tr,
-    &-tbody > tr {
-      > th,
-      > td {
-        white-space: pre;
-
-        > span {
-          display: block;
-        }
-      }
-    }
-  }
-}
-
-// 兼容IE11
-@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
-  body .antd-pro-app\.module-ant-design-pro > .antd-pro-app\.module-ant-layout {
-    min-height: 100vh;
-  }
-}
-
-/* 
   Convert to from  src/components/GlobalHeader/index.less
  */
 
@@ -475,4 +416,78 @@ ol {
       top: -1px;
     }
   }
+}
+
+/* 
+  Convert to from  src/layouts/UserLayout.less
+ */
+
+.antd-pro-layouts-user-layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+  background: @layout-body-background;
+}
+
+.antd-pro-layouts-user-layout-lang {
+  width: 100%;
+  height: 40px;
+  line-height: 44px;
+  text-align: right;
+  :global(.ant-dropdown-trigger) {
+    margin-right: 24px;
+  }
+}
+
+.antd-pro-layouts-user-layout-content {
+  flex: 1;
+  padding: 32px 0;
+}
+
+@media (min-width: @screen-md-min) {
+  .antd-pro-layouts-user-layout-container {
+    background-image: url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg");
+    background-repeat: no-repeat;
+    background-position: center 110px;
+    background-size: 100%;
+  }
+
+  .antd-pro-layouts-user-layout-content {
+    padding: 32px 0 24px;
+  }
+}
+
+.antd-pro-layouts-user-layout-top {
+  text-align: center;
+}
+
+.antd-pro-layouts-user-layout-header {
+  height: 44px;
+  line-height: 44px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.antd-pro-layouts-user-layout-logo {
+  height: 44px;
+  margin-right: 16px;
+  vertical-align: top;
+}
+
+.antd-pro-layouts-user-layout-title {
+  position: relative;
+  top: 2px;
+  color: @heading-color;
+  font-weight: 600;
+  font-size: 33px;
+  font-family: Avenir, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.antd-pro-layouts-user-layout-desc {
+  margin-top: 12px;
+  margin-bottom: 40px;
+  color: @text-color-secondary;
+  font-size: @font-size-base;
 }
