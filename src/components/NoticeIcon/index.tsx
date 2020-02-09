@@ -99,7 +99,7 @@ export default class NoticeIcon extends Component<NoticeIconProps> {
         return;
       }
       const { list, title, count, tabKey, showClear, showViewMore } = child.props;
-      const len = list?.length ? list.length : 0;
+      const len = list && list.length ? list.length : 0;
       const msgCount = count || count === 0 ? count : len;
       const tabTitle: string = msgCount > 0 ? `${title} (${msgCount})` : title;
       panes.push(

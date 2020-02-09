@@ -4,21 +4,21 @@
  * https://github.com/ant-design/ant-design-pro-layout
  */
 
+import React, {useEffect} from 'react';
 import ProLayout, {
     MenuDataItem,
     BasicLayoutProps as ProLayoutProps,
     Settings,
     DefaultFooter,
 } from '@ant-design/pro-layout';
-import React, {useEffect} from 'react';
 import {Link} from '@reach/router';
-import {Icon, Result, Button} from 'antd';
 import {useIntl} from 'react-intl';
+import {Icon, Result, Button} from 'antd';
 
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import {isAntDesignPro, getAuthorityFromRouter} from '@/utils/utils';
-import logo from '../assets/logo.svg';
+import logo from '@/assets/logo.svg';
 
 import User from '@/models/user';
 import Global from '@/models/global';
@@ -57,16 +57,14 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 /**
  * use Authorized check all menu item
  */
-const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] => {
-    return menuList.map(item => {
+const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
+    menuList.map(item => {
         const localItem = {
             ...item,
             children: item.children ? menuDataRender(item.children) : [],
         };
         return Authorized.check(item.authority, localItem, null) as MenuDataItem;
     });
-}
-
 
 const defaultFooterDom = (
     <DefaultFooter
@@ -161,7 +159,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
                 if (menuItemProps.isUrl || menuItemProps.children || !menuItemProps.path) {
                     return defaultDom;
                 }
-                return <Link to={menuItemProps.path as string}>{defaultDom}</Link>;
+                return <Link to={menuItemProps.path}>{defaultDom}</Link>;
             }}
             breadcrumbRender={(routers = []) => [
                 {
@@ -185,6 +183,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
             menuDataRender={menuDataRender}
             formatMessage={formatMessage}
             rightContentRender={() => <RightContent/>}
+            style={{
+                minHeight: '100vh'
+            }}
             {...props}
             {...settings}
         >

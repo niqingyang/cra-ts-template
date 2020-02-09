@@ -71,7 +71,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = (props) => {
                         <List.Item
                             className={itemCls}
                             key={item.key || i}
-                            onClick={() => onClick?.(item)}
+              		    onClick={() => onClick && onClick(item)}
                         >
                             <List.Item.Meta
                                 className={styles.meta}

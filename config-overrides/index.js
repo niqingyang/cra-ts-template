@@ -10,12 +10,12 @@ const addTypeScript = require('./ts');
 const addReactIntl = require('./react-intl');
 
 module.exports = override(
+    addAlias,
     addEslint,
+    addAntdPro,
+    addLessLoader,
+    addReactIntl,
     addWebpackPlugin,
     addWebpackDllPlugin,
-    addLessLoader,
-    addAntdPro,
-    addAlias,
-    // addTypeScript,
-    addReactIntl
+    // addTypeScript
 );

@@ -1,6 +1,6 @@
 const path = require('path');
+const {paths} = require('react-app-rewired');
 const webpack = require('webpack');
-const paths = require('../paths');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {

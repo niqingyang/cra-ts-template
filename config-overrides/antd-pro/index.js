@@ -1,5 +1,5 @@
 const path = require('path');
-const paths = require('../paths');
+const {paths} = require('react-app-rewired');
 const {override, fixBabelImports, addWebpackPlugin} = require('customize-cra');
 // AntD 主题插件
 // https://github.com/mzohaibqc/antd-theme-webpack-plugin
@@ -19,7 +19,7 @@ module.exports = override(
     fixBabelImports('import', {
         libraryName: 'antd',
         libraryDirectory: 'es',
-        //style: 'css',
+        // style: 'css',
         style: true,
     }),
     // 1.0.0

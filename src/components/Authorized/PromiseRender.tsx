@@ -13,8 +13,7 @@ interface PromiseRenderState {
     component: React.ComponentClass | React.FunctionComponent;
 }
 
-export default class PromiseRender<T, K> extends React.Component<PromiseRenderProps<T, K>,
-    PromiseRenderState> {
+export default class PromiseRender<T, K> extends React.Component<PromiseRenderProps<T, K>, PromiseRenderState> {
     state: PromiseRenderState = {
         component: () => null,
     };

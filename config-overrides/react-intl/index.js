@@ -1,6 +1,6 @@
-const {addBabelPlugin, override, add} = require('customize-cra')
 const path = require('path');
-const paths = require('../paths');
+const {paths} = require('react-app-rewired');
+const {addBabelPlugin, override, add} = require('customize-cra')
 
 module.exports = override(
     addBabelPlugin([

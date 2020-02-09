@@ -14,7 +14,7 @@
 
 .right {
     float: right;
-  height: @layout-header-height;
+    height: @layout-header-height;
     margin-left: auto;
     overflow: hidden;
 
@@ -59,16 +59,18 @@
 }
 
 .dark {
-  .action {
-    color: rgba(255, 255, 255, 0.85);
-    > i {
-      color: rgba(255, 255, 255, 0.85);
+    .action {
+        color: rgba(255, 255, 255, 0.85);
+
+        > i {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        &:hover,
+        &:global(.opened) {
+            background: @primary-color;
+        }
     }
-    &:hover,
-    &:global(.opened) {
-      background: @primary-color;
-    }
-  }
 }
 
 :global(.ant-pro-global-header) {

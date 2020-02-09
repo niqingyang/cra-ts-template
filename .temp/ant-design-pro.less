@@ -1,6 +1,124 @@
 @import "~antd/es/style/themes/default.less";
 
 /* 
+  Convert to from  src/App.less
+*/
+
+html,
+body,
+#antd-pro-app-root {
+  height: 100%;
+}
+
+.antd-pro-app-colorWeak {
+  filter: invert(80%);
+}
+
+.antd-pro-app-ant-layout {
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .antd-pro-app-ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// 兼容IE11
+@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body .antd-pro-app-ant-design-pro > .antd-pro-app-ant-layout {
+    min-height: 100vh;
+  }
+}
+
+/* 
+  Convert to from  src/App.module.less
+*/
+
+html,
+body,
+#antd-pro-app\.module-root {
+  height: 100%;
+}
+
+.antd-pro-app\.module-colorWeak {
+  filter: invert(80%);
+}
+
+.antd-pro-app\.module-ant-layout {
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .antd-pro-app\.module-ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// 兼容IE11
+@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body .antd-pro-app\.module-ant-design-pro > .antd-pro-app\.module-ant-layout {
+    min-height: 100vh;
+  }
+}
+
+/* 
   Convert to from  src/components/GlobalHeader/index.less
  */
 
@@ -65,9 +183,11 @@
 .antd-pro-components-global-header-index-dark {
   .antd-pro-components-global-header-index-action {
     color: rgba(255, 255, 255, 0.85);
+
     > i {
       color: rgba(255, 255, 255, 0.85);
     }
+
     &:hover,
     &:global(.opened) {
       background: @primary-color;
