@@ -1,15 +1,18 @@
-{
-    "presets": [
+module.exports = function (api) {
+    api.cache(true);
+
+    const presets = [
         "react-app",
         [
+            // https://babeljs.io/docs/en/babel-preset-env#usebuiltins
             "@babel/preset-env",
             {
                 "useBuiltIns": "usage",
                 "corejs": "3"
             }
         ]
-    ],
-    "plugins": [
+    ];
+    const plugins = [
         "react-hot-loader/babel",
         "@babel/plugin-proposal-json-strings",
         "@babel/plugin-syntax-dynamic-import",
@@ -36,5 +39,10 @@
                 "useESModules": false
             }
         ]
-    ]
+    ];
+
+    return {
+        presets,
+        plugins
+    };
 }

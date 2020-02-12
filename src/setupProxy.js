@@ -13,5 +13,5 @@ module.exports = function (app) {
         path.join(appPath, 'mock')
     ];
 
-    app.use(require("@acme-top/express-mock-middleware").createMiddleware(mockPaths));
+    app.use(require("express-hot-mock-middleware").createMiddleware(mockPaths));
 };

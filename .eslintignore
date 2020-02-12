@@ -9,5 +9,4 @@
 !src/**/*.jsx
 !src/**/*.ts
 !src/**/*.tsx
-src/middleware
 src/steupProxy.js
