@@ -48,6 +48,11 @@ export default [
                 component: () => import('@/pages/Demo/RandomUser'),
             },
             {
+                name: 'Api Client',
+                path: '/demo/api-client',
+                component: () => import('@/pages/Demo/ApiClient'),
+            },
+            {
                 name: 'Test',
                 routes: [
                     {

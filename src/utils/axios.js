@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {notification} from 'antd';
-import {stores} from 'mobx-react-stores';
+import {navigate} from '@reach/router';
 
 const codeMessage = {
     200: '服务器成功返回请求的数据。',
@@ -72,11 +72,8 @@ const errorHandler = (error) => {
         notification.error({
             message: '未登录或登录已过期，请重新登录。',
         });
-        // @HACK
-        /* eslint-disable no-underscore-dangle */
-        stores.dispatch({
-            type: 'login/logout',
-        });
+
+        navigate('/logout');
 
         return Promise.reject(error);
     }
@@ -86,17 +83,15 @@ const errorHandler = (error) => {
         description: errorText,
     });
 
-    const {routing} = stores;
-
     // environment should not be used
     if (status === 403) {
-        routing.push('/exception/403');
+        navigate('/exception/403');
     }
     if (status <= 504 && status >= 500) {
-        routing.push('/exception/500');
+        navigate('/exception/500');
     }
     if (status >= 404 && status < 422) {
-        routing.push('/exception/404');
+        navigate('/exception/404');
     }
 
     return Promise.reject(error);

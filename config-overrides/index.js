@@ -6,7 +6,7 @@ const addEslint = require('./eslint');
 const addLessLoader = require('./less');
 const addAntdPro = require('./antd-pro');
 const addAlias = require('./alias');
-const addTypeScript = require('./ts');
+const addBabel = require('./babel');
 const addReactIntl = require('./react-intl');
 
 module.exports = override(
@@ -17,5 +17,5 @@ module.exports = override(
     addReactIntl,
     addWebpackPlugin,
     addWebpackDllPlugin,
-    // addTypeScript
+    // addBabel
 );
