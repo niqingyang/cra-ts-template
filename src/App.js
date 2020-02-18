@@ -18,9 +18,7 @@ const App = observer((props) => {
 
     return (
         <IntlProvider locale={locale} messages={messages}>
-            <Compose providers={providers(containers)}>
-                <AppRouter {...{routes, defaultLoadingComponent: PageLoading}}/>
-            </Compose>
+            <AppRouter {...{routes, defaultLoadingComponent: PageLoading}}/>
         </IntlProvider>
     );
 })

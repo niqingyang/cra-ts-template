@@ -20,53 +20,75 @@ export interface RouteType {
     component: React.FC | React.Component
     // 子路由
     routes?: RouteType[],
-
+    // 其他任意属性
     [key: string]: any
 }
 
 export default [
     {
-        name: 'Demo',
-        path: '/demo',
+        path: '/',
+        providers: [
+            () => import('@/models/global'),
+            () => import('@/models/settings'),
+            () => import('@/models/user'),
+            () => import('@/models/login')
+        ],
         component: () => import('@/layouts/BasicLayout'),
         routes: [
             {
-                name: 'Counter',
-                path: '/demo/counter',
-                providers: () => import('@/pages/Demo/Counter/models'),
-                component: () => import('@/pages/Demo/Counter'),
-            },
-            {
-                name: 'Mobx Counter',
-                path: '/demo/mobx-counter',
+                name: 'Demo',
+                path: '/demo',
                 providers: [
-                    () => import('@/pages/Demo/MobxCounter/models')
+                    () => import('@/pages/Demo/Test/models/tips'),
+                    () => import('@/pages/Demo/MobxCounter/models'),
                 ],
-                component: () => import('@/pages/Demo/MobxCounter'),
-            },
-            {
-                name: 'Random User',
-                path: '/demo/random-user',
-                component: () => import('@/pages/Demo/RandomUser'),
-            },
-            {
-                name: 'Api Client',
-                path: '/demo/api-client',
-                component: () => import('@/pages/Demo/ApiClient'),
-            },
-            {
-                name: 'Test',
                 routes: [
                     {
-                        name: 'Test',
-                        path: '/demo/test',
+                        name: 'Counter',
+                        path: '/demo/counter',
                         providers: [
-                            () => import('@/pages/Demo/Test/models/tips'),
-                            () => import('@/pages/Demo/MobxCounter/models')
+                            () => import('@/pages/Demo/Counter/models')
                         ],
-                        component: () => import('@/pages/Demo/Test'),
+                        component: () => import('@/pages/Demo/Counter'),
+                    },
+                    {
+                        name: 'Mobx Counter',
+                        path: '/demo/mobx-counter',
+                        component: () => import('@/pages/Demo/MobxCounter'),
+                    },
+                    {
+                        name: 'Random User',
+                        path: '/demo/random-user',
+                        component: () => import('@/pages/Demo/RandomUser'),
+                    },
+                    {
+                        name: 'Api Client',
+                        path: '/demo/api-client',
+                        component: () => import('@/pages/Demo/ApiClient'),
+                    },
+                    {
+                        name: 'Test',
+                        routes: [
+                            {
+                                name: 'Test',
+                                path: '/demo/test',
+                                component: () => import('@/pages/Demo/Test'),
+                            }
+                        ]
                     }
                 ]
+            },
+            {
+                path: '/exception/403',
+                component: () => import('@/pages/Exception/403')
+            },
+            {
+                path: '/exception/404',
+                component: () => import('@/pages/Exception/404')
+            },
+            {
+                path: '/exception/500',
+                component: () => import('@/pages/Exception/500')
             }
         ]
     }

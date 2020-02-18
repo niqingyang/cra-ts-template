@@ -65,16 +65,22 @@ function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
                     route.providers = [route.providers];
                 }
 
+                const providers = [];
+
                 route.providers = Loadable.Map({
                     loader: route.providers,
                     loading: route.loadingComponent,
                     render(loaded, props) {
 
-                        const providers = Object.keys(loaded).filter((key) => {
-                            return loaded[key].default.Provider
-                        }).map((key) => {
-                            return loaded[key].default.Provider
-                        });
+                        if(providers.length == 0){
+                            Object.keys(loaded).forEach((key)=>{
+                                isObject(loaded[key]) && Object.keys(loaded[key]).filter((name)=>{
+                                    return loaded[key][name] && loaded[key][name].Provider;
+                                }).forEach((name)=>{
+                                    providers.push(loaded[key][name].Provider);
+                                })
+                            });
+                        }
 
                         return (
                             <Compose providers={providers}>
@@ -111,6 +117,10 @@ function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
 
 function isFunction(func) {
     return typeof func === 'function';
+}
+
+function isObject(obj) {
+    return typeof obj === 'object';
 }
 
 function AppRouter({routes, defaultLoadingComponent}) {

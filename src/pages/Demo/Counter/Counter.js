@@ -1,5 +1,4 @@
-import React, {useContext, useState} from 'react';
-import {observer} from "mobx-react";
+import React from 'react';
 import Count from './models';
 
 let num = 0;
@@ -25,4 +24,4 @@ function Counter(props) {
     )
 }
 
-export default observer(Counter);
+export default Counter;
