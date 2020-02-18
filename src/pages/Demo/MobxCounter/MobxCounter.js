@@ -1,23 +1,20 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import {observer} from "mobx-react";
-import {useIntl, defineMessages, FormattedMessage} from "react-intl";
-import useMobxCount from '@/models/demo/MobxCount';
+import {FormattedMessage} from "react-intl";
+import Count from './models';
 import messages from "@/pages/Demo/MobxCounter/messages";
 
 let num = 0;
 
-
 function MobxCounter(props) {
 
-    const store = useMobxCount.useContainer();
+    const store = Count.useContainer();
 
     num += 1;
 
-    messages.title.values = {count: store.count, num};
-
     return (
         <div>
-            <FormattedMessage {...messages.title}/>
+            <FormattedMessage {...messages.title} values={{count: store.count, num}}/>
             {' '}
             <button onClick={store.increment}>
                 +

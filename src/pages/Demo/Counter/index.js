@@ -1,5 +1,4 @@
 import React from 'react';
-import {Router, Link} from '@reach/router';
 import Counter from './Counter';
 import CounterName from './CounterName';
 

@@ -13,7 +13,8 @@ import ProLayout, {
 } from '@ant-design/pro-layout';
 import {Link} from '@reach/router';
 import {useIntl} from 'react-intl';
-import {Icon, Result, Button} from 'antd';
+import {Result, Button} from 'antd';
+import {GithubOutlined} from '@ant-design/icons';
 
 import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
@@ -79,7 +80,7 @@ const defaultFooterDom = (
             },
             {
                 key: 'github',
-                title: <Icon type="github"/>,
+                title: <GithubOutlined />,
                 href: 'https://github.com/ant-design/ant-design-pro',
                 blankTarget: true,
             },

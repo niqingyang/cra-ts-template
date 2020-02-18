@@ -4,11 +4,11 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './index.less';
 
-type OverlayFunc = () => React.ReactNode;
+type OverlayFunc = () => React.ReactElement;
 
 export interface HeaderDropdownProps extends DropDownProps {
     overlayClassName?: string;
-    overlay: React.ReactNode | OverlayFunc;
+    overlay: React.ReactElement | OverlayFunc;
     placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight' | 'bottomCenter';
 }
 

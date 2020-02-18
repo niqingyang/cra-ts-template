@@ -23,7 +23,7 @@ function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
             return renderRoutes(route.routes, defaultLoadingComponent, parentRoute);
         }
 
-        route.path = route.path ? route.path.trimRight('/') : parentRoute.path;
+        route.path = route.path ? route.path : parentRoute.path;
 
         if(parentRoute && route.path.startsWith(parentRoute.path + '/')){
             route.path = route.path.substring(parentRoute.path.length + 1);
@@ -35,7 +35,7 @@ function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
         }
 
         // 计算绝对路径，用于菜单中使用
-        if (parentRoute && !route.path.startsWith("/")) {
+        if (parentRoute && !route.path.startsWith('/')) {
             route.path = parentRoute.path + '/' + route.path;
         }
 
@@ -57,16 +57,6 @@ function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
 
         // 标记组件已加载过
         route.componentLoaded = true;
-
-        const component = (
-            <route.component
-                key={route.key || i}
-                path={route.componentPath}
-                route={route}
-            >
-                {renderRoutes(route.routes, defaultLoadingComponent, route)}
-            </route.component>
-        );
 
         if (route.providers) {
             if (!route.providersLoaded) {
@@ -93,18 +83,29 @@ function renderRoutes(routes, defaultLoadingComponent, parentRoute) {
                         );
                     }
                 });
-
-                route.providersLoaded = true;
             }
+        }else{
+            route.providers = BlankLayout;
+        }
 
+        // 标记组件已加载过
+        route.providersLoaded = true;
+
+        const Component = (props) => {
             return (
-                <route.providers key={route.key || i} path='/'>
-                    {component}
+                <route.providers>
+                    <route.component {...props}>
+                        {props.children}
+                    </route.component>
                 </route.providers>
             )
         }
 
-        return component;
+        return (
+            <Component key={route.key || i} path={`${route.componentPath}`} route={route}>
+                {renderRoutes(route.routes, defaultLoadingComponent, route)}
+            </Component>
+        );
     })) : null;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Icon, Tooltip} from 'antd';
+import {Tooltip} from 'antd';
+import {QuestionCircleOutlined} from '@ant-design/icons';
 import {useIntl} from "react-intl";
 
 import Setting from '@/models/settings';
@@ -59,7 +60,7 @@ const GlobalHeaderRight: React.FC<any> = props => {
                     rel="noopener noreferrer"
                     className={styles.action}
                 >
-                    <Icon type="question-circle-o"/>
+                    <QuestionCircleOutlined />
                 </a>
             </Tooltip>
             <Avatar/>

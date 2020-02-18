@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react";
-import Count from '@/models/demo/MobxCount';
+import Count from '@/pages/Demo/MobxCounter/models';
 import Tips from './models/tips';
 
 let num = 0;

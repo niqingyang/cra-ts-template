@@ -1,0 +1,8 @@
+{
+    "upgrade": true,
+    "reject": [
+        "antd-pro-merge-less",
+        "@testing-library/jest-dom",
+        "@testing-library/user-event"
+    ]
+}

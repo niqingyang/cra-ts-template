@@ -20,6 +20,7 @@ export interface RouteType {
     component: React.FC | React.Component
     // 子路由
     routes?: RouteType[],
+
     [key: string]: any
 }
 
@@ -27,19 +28,20 @@ export default [
     {
         name: 'Demo',
         path: '/demo',
-        providers: [
-            () => import('@/pages/Demo/Test/models/tips'),
-        ],
         component: () => import('@/layouts/BasicLayout'),
         routes: [
             {
                 name: 'Counter',
                 path: '/demo/counter',
+                providers: () => import('@/pages/Demo/Counter/models'),
                 component: () => import('@/pages/Demo/Counter'),
             },
             {
                 name: 'Mobx Counter',
                 path: '/demo/mobx-counter',
+                providers: [
+                    () => import('@/pages/Demo/MobxCounter/models')
+                ],
                 component: () => import('@/pages/Demo/MobxCounter'),
             },
             {
@@ -58,7 +60,10 @@ export default [
                     {
                         name: 'Test',
                         path: '/demo/test',
-                        providers: () => import('@/pages/Demo/Test/models/tips'),
+                        providers: [
+                            () => import('@/pages/Demo/Test/models/tips'),
+                            () => import('@/pages/Demo/MobxCounter/models')
+                        ],
                         component: () => import('@/pages/Demo/Test'),
                     }
                 ]

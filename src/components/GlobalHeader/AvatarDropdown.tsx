@@ -1,5 +1,6 @@
 import React from 'react';
-import {Avatar, Icon, Menu, Spin} from 'antd';
+import {Avatar, Menu, Spin} from 'antd';
+import {UserOutlined, SettingOutlined, LogoutOutlined} from '@ant-design/icons';
 import {ClickParam} from 'antd/es/menu';
 import {FormattedMessage} from 'react-intl';
 import {navigate} from '@reach/router';
@@ -35,20 +36,20 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = (props) => {
         <Menu className={styles.menu} selectedKeys={[]} onClick={onMenuClick}>
             {menu && (
                 <Menu.Item key="center">
-                    <Icon type="user"/>
+                    <UserOutlined />
                     <FormattedMessage id="menu.account.center" defaultMessage="account center"/>
                 </Menu.Item>
             )}
             {menu && (
                 <Menu.Item key="settings">
-                    <Icon type="setting"/>
+                    <SettingOutlined />
                     <FormattedMessage id="menu.account.settings" defaultMessage="account settings"/>
                 </Menu.Item>
             )}
             {menu && <Menu.Divider/>}
 
             <Menu.Item key="logout">
-                <Icon type="logout"/>
+                <LogoutOutlined />
                 <FormattedMessage id="menu.account.logout" defaultMessage="logout"/>
             </Menu.Item>
         </Menu>

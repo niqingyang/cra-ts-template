@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react";
-import useMobxCount from '@/models/demo/MobxCount';
+import MobxCount from './models';
 import {defineMessages, FormattedMessage} from "react-intl";
 import messages from "@/pages/Demo/MobxCounter/messages";
 
@@ -8,7 +8,7 @@ let num = 0;
 
 function MobxCounterName(props) {
 
-    const {name, setName} = useMobxCount.useContainer();
+    const {name, setName} = MobxCount.useContainer();
 
     num += 1;
 

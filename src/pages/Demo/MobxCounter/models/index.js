@@ -21,5 +21,3 @@ const useMobxCount = function () {
 }
 
 export default createContainer(useMobxCount);
-
-export {useMobxCount};

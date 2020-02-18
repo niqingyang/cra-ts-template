@@ -1,4 +1,5 @@
-import {AutoComplete, Icon, Input} from 'antd';
+import {AutoComplete, Input} from 'antd';
+import {SearchOutlined} from '@ant-design/icons';
 import {AutoCompleteProps, DataSourceItemType} from 'antd/es/auto-complete';
 import React, {Component} from 'react';
 
@@ -126,7 +127,7 @@ export default class HeaderSearch extends Component<HeaderSearchProps, HeaderSea
                     }
                 }}
             >
-        <Icon type="search" key="Icon"/>
+        <SearchOutlined />
         <AutoComplete
             key="AutoComplete"
             {...restProps}
