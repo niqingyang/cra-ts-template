@@ -13,7 +13,7 @@
   },
   {
     "id": "pages.Demo.MobxCounter.messages.nameTitle",
-    "defaultMessage": "Name: {name}, render times {num}"
+    "defaultMessage": "Name: {name}, render times {num} "
   },
   {
     "id": "pages.Demo.MobxCounter.messages.title",

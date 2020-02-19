@@ -1,8 +1,10 @@
 import React from 'react';
+import {SmileOutlined} from '@ant-design/icons'
 
 export interface RouteType {
     // 名称，无则不会在菜单上显示
     name?: string,
+    // 图标
     icon?: string,
     locale?: string,
     authority?: string[] | string,
@@ -37,6 +39,7 @@ export default [
         routes: [
             {
                 name: 'Demo',
+                icon: <SmileOutlined/>,
                 path: '/demo',
                 providers: [
                     () => import('@/pages/Demo/Test/models/tips'),
