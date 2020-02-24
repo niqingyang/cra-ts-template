@@ -18,5 +18,13 @@
   {
     "id": "pages.Demo.MobxCounter.messages.title",
     "defaultMessage": "Clicked: {count} times, render {num} times"
+  },
+  {
+    "id": "pages.Demo.MobxCounter.nameTitle",
+    "defaultMessage": "Name: {name}, render times {num}"
+  },
+  {
+    "id": "pages.Demo.MobxCounter.title",
+    "defaultMessage": "Clicked: {count} times, render {num} times"
   }
 ]

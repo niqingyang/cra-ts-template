@@ -1,5 +1,6 @@
 import {useLocalStore} from "mobx-react";
 import {createContainer} from "unstated-next"
+import {queryCurrent, queryUsers} from "@/services/user";
 
 export interface CurrentUser {
     avatar?: string;
@@ -12,35 +13,46 @@ export interface CurrentUser {
         label: string;
     }[];
     userId?: string;
+    totalCount?: number;
     unreadCount?: number;
 }
 
-export interface UserModelState {
+export interface UserStateType {
     currentUser?: CurrentUser;
 }
 
-export interface UserModelType extends UserModelState {
+export interface UserType extends UserStateType {
+    users?: UserStateType[],
     fetch: () => void;
     fetchCurrent: () => void;
-    saveCurrentUser: () => void;
-    changeNotifyCount: () => void;
+    saveCurrentUser: (currentUser: CurrentUser) => void;
+    changeNotifyCount: (payload: {totalCount: number, unreadCount: number}) => void;
 }
 
 const useUser = () => {
-    const store = useLocalStore<UserModelType>(() => {
+    const store = useLocalStore<UserType>(() => {
         return {
             currentUser: {},
-            fetch: () => {
-
+            fetch: async () => {
+                const response = await queryUsers();
+                store.users = response.data;
             },
-            fetchCurrent: () => {
-
+            fetchCurrent: async () => {
+                const response = await queryCurrent();
+                store.saveCurrentUser(response.data);
             },
-            saveCurrentUser: () => {
-
+            saveCurrentUser: (currentUser) => {
+                store.currentUser = {
+                    ...store.currentUser,
+                    ...currentUser
+                }
             },
-            changeNotifyCount: () => {
-
+            changeNotifyCount: ({totalCount, unreadCount}) => {
+                store.currentUser = {
+                    ...store.currentUser,
+                    totalCount,
+                    unreadCount
+                }
             }
         }
     });

@@ -1,4 +1,5 @@
-import React, {Component, useEffect} from 'react';
+import React, {useEffect} from 'react';
+import {observer} from "mobx-react";
 import {Tag, message} from 'antd';
 import {useIntl} from 'react-intl';
 import groupBy from 'lodash/groupBy';
@@ -24,9 +25,7 @@ const GlobalHeaderRight: React.FC<GlobalHeaderRightProps> = (props) => {
     const {currentUser} = User.useContainer();
 
     useEffect(() => {
-        return ()=>{
-            global.fetchNotices();
-        }
+        global.fetchNotices();
     }, []);
 
     const changeReadState = (clickedItem: NoticeItem): void => {
@@ -54,7 +53,7 @@ const GlobalHeaderRight: React.FC<GlobalHeaderRightProps> = (props) => {
             }
             if (newNotice.extra && newNotice.status) {
 
-                const colors: {[key: string]: string} = {
+                const colors: { [key: string]: string } = {
                     todo: '',
                     processing: 'blue',
                     urgent: 'red',
@@ -138,4 +137,4 @@ const GlobalHeaderRight: React.FC<GlobalHeaderRightProps> = (props) => {
 }
 
 
-export default GlobalHeaderRight;
+export default observer(GlobalHeaderRight);

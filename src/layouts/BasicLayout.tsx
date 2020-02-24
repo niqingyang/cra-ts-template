@@ -5,6 +5,7 @@
  */
 
 import React, {useEffect} from 'react';
+import {observer} from "mobx-react";
 import ProLayout, {
     MenuDataItem,
     BasicLayoutProps as ProLayoutProps,
@@ -125,18 +126,18 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     /**
      * constructor
      */
-    const user = User.useContainer();
-    const global = Global.useContainer();
+    const {fetchCurrent} = User.useContainer();
+    const {changeLayoutCollapsed} = Global.useContainer();
     const {state: settings} = Setting.useContainer();
 
     useEffect(() => {
-        user.fetchCurrent();
+        fetchCurrent();
     }, []);
     /**
      * init variables
      */
     const handleMenuCollapse = (collapsed: boolean): void => {
-        global.changeLayoutCollapsed(collapsed);
+        changeLayoutCollapsed(collapsed);
     };
     // get children authority
     const authorized = getAuthorityFromRouter(route.routes, location.pathname || '/') || {
@@ -196,4 +197,4 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
     );
 };
 
-export default BasicLayout;
+export default observer(BasicLayout);

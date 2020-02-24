@@ -22,6 +22,7 @@ export interface RouteType {
     component: React.FC | React.Component
     // 子路由
     routes?: RouteType[],
+
     // 其他任意属性
     [key: string]: any
 }
@@ -94,5 +95,22 @@ export default [
                 component: () => import('@/pages/Exception/500')
             }
         ]
+    },
+    {
+        path: '/user',
+        providers: [
+            () => import('@/models/global'),
+            () => import('@/models/settings'),
+            () => import('@/models/user'),
+            () => import('@/models/login')
+        ],
+        component: () => import('@/layouts/UserLayout'),
+        routes: [
+            {
+                path: '/user/login',
+                component: () => import('@/pages/user/login')
+            }
+        ]
+
     }
 ];

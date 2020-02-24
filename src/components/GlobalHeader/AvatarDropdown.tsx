@@ -1,4 +1,5 @@
 import React from 'react';
+import {observer} from "mobx-react";
 import {Avatar, Menu, Spin} from 'antd';
 import {UserOutlined, SettingOutlined, LogoutOutlined} from '@ant-design/icons';
 import {ClickParam} from 'antd/es/menu';
@@ -67,4 +68,4 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = (props) => {
     );
 }
 
-export default AvatarDropdown;
+export default observer(AvatarDropdown);

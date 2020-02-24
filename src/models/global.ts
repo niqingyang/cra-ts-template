@@ -1,6 +1,8 @@
 import {useLocalStore} from "mobx-react";
 import {createContainer} from "unstated-next";
 import {NoticeIconData} from '@/components/NoticeIcon';
+import {queryNotices} from "@/services/user";
+import User from "@/models/user";
 
 export interface NoticeItem extends NoticeIconData {
     id: string;
@@ -8,42 +10,66 @@ export interface NoticeItem extends NoticeIconData {
     status: string;
 }
 
-export interface GlobalModelState {
+export interface GlobalStateType {
     collapsed: boolean;
     notices: NoticeItem[];
 }
 
-export interface GlobalModelType extends GlobalModelState {
+export interface GlobalType extends GlobalStateType {
     fetchNotices: () => void;
-    clearNotices: (id: string) => void;
+    clearNotices: (type: string) => void;
     changeNoticeReadState: (id: string) => void;
     changeLayoutCollapsed: (collapsed: boolean) => void;
-    saveNotices: () => void;
-    saveClearedNotices: () => void;
+    saveNotices: (notices: NoticeItem[]) => void;
+    saveClearedNotices: (type: string) => void;
 }
 
 const useGlobal = () => {
-    const store = useLocalStore<GlobalModelType>(() => {
+
+    const user = User.useContainer();
+
+    const store = useLocalStore<GlobalType>(() => {
         return {
             collapsed: true,
             notices: [],
-            fetchNotices: () => {
+            fetchNotices: async () => {
+                const response = await queryNotices();
 
+                store.saveNotices(response.data);
             },
-            clearNotices: (id: string) => {
-                store.notices = [];
+            clearNotices: (type: string) => {
+                store.saveClearedNotices(type);
+
+                user.changeNotifyCount({
+                    totalCount: store.notices.length,
+                    unreadCount: store.notices.filter((item):boolean => !item.read ).length
+                });
             },
             changeNoticeReadState: (id: string) => {
+                const notices = store.notices.map((item) => {
+                    if(item.id == id){
+                        item.read = true;
+                    }
+                    return item;
+                });
 
+                store.saveNotices(notices);
+
+                user.changeNotifyCount({
+                    totalCount: notices.length,
+                    unreadCount: notices.filter((item):boolean => !item.read ).length
+                });
             },
             changeLayoutCollapsed: (collapsed: boolean) => {
                 store.collapsed = collapsed;
             },
-            saveNotices: () => {
-
+            saveNotices: (notices) => {
+                store.collapsed = false;
+                store.notices = notices;
             },
-            saveClearedNotices: () => {
-
+            saveClearedNotices: (type) => {
+                store.collapsed = false;
+                store.notices = store.notices.filter((item): boolean => item.type != type)
             }
         }
     });

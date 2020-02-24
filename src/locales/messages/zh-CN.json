@@ -7,5 +7,7 @@
   "components.SelectLang.navBarLang": "语言",
   "menu.account.center": "account center",
   "menu.account.logout": "logout",
-  "menu.account.settings": "account settings"
+  "menu.account.settings": "account settings",
+  "pages.Demo.MobxCounter.nameTitle": "Name: {name}, render times {num}",
+  "pages.Demo.MobxCounter.title": "Clicked: {count} times, render {num} times"
 }
