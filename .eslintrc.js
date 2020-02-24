@@ -29,6 +29,7 @@ module.exports = {
         'no-param-reassign': 0,
         '@typescript-eslint/consistent-type-assertions': 0,
         '@typescript-eslint/prefer-optional-chain': 0,
+        '@typescript-eslint/no-inferrable-types': 0, // 关闭类型推断
         'no-eq-null': 0,
         'eqeqeq': 0
     }

@@ -491,3 +491,90 @@ ol {
   color: @text-color-secondary;
   font-size: @font-size-base;
 }
+
+/* 
+  Convert to from  src/pages/user/login/components/Login/index.less
+ */
+.antd-pro-pages-user-login-components-login-index-login {
+  .ant-tabs .ant-tabs-bar {
+    margin-bottom: 24px;
+    text-align: center;
+    border-bottom: 0;
+  }
+
+  .antd-pro-pages-user-login-components-login-index-getCaptcha {
+    display: block;
+    width: 100%;
+  }
+
+  .antd-pro-pages-user-login-components-login-index-icon {
+    margin-left: 16px;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+
+  .antd-pro-pages-user-login-components-login-index-other {
+    margin-top: 24px;
+    line-height: 22px;
+    text-align: left;
+
+    .antd-pro-pages-user-login-components-login-index-register {
+      float: right;
+    }
+  }
+
+  .antd-pro-pages-user-login-components-login-index-prefixIcon {
+    color: @disabled-color;
+    font-size: @font-size-base;
+  }
+
+  .antd-pro-pages-user-login-components-login-index-submit {
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+/* 
+  Convert to from  src/pages/user/login/style.less
+ */
+.antd-pro-pages-user-login-style-main {
+  width: 368px;
+  margin: 0 auto;
+  @media screen and (max-width: @screen-sm) {
+    width: 95%;
+  }
+
+  .antd-pro-pages-user-login-style-icon {
+    margin-left: 16px;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+
+  .antd-pro-pages-user-login-style-other {
+    margin-top: 24px;
+    line-height: 22px;
+    text-align: left;
+
+    .antd-pro-pages-user-login-style-register {
+      float: right;
+    }
+  }
+  .antd-pro-login-submit {
+    width: 100%;
+    margin-top: 24px;
+  }
+}

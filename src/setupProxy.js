@@ -10,7 +10,8 @@ const appPath = fs.realpathSync(process.cwd());
 module.exports = function (app) {
 
     const mockPaths = [
-        path.join(appPath, 'mock')
+        path.join(appPath, 'mock'),
+        path.join(appPath, '/src/**/_mock.[tj]s')
     ];
 
     app.use(require("express-hot-mock-middleware").createMiddleware(mockPaths));
