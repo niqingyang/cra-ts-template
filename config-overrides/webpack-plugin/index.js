@@ -7,6 +7,7 @@ const {
     adjustWorkbox
 } = require('customize-cra');
 
+const paths = require('../paths');
 const webpack = require('webpack');
 const getClientEnvironment = require('./env');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
