@@ -19,7 +19,7 @@
         "@types/react-loadable": "^5.5.3",
         "@types/warning": "^3.0.0",
         "antd": "^4.0.0-rc.5",
-        "axios": "^0.21.1",
+        "axios": "^1.6.0",
         "axios-hooks": "^1.9.0",
         "classnames": "^2.2.6",
         "debug": "^4.1.1",
